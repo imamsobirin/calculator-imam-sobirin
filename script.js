@@ -108,4 +108,5 @@ inputDecimal = (dot) => {
 decimal.addEventListener("click", (event) => {
   inputDecimal(event.target.value);
   updateScreen(currentNumber);
+  displayedOperation += event.target.value;
 });

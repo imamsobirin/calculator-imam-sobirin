@@ -52,3 +52,6 @@ button:hover {
 .equal-sign:hover {
   background-color: darkorange;
 }
+.percentage {
+  background-color: gray;
+}

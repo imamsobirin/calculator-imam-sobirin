@@ -46,22 +46,32 @@ const clearAll = () => {
 // fungsi kalkulasi
 const calculate = () => {
   let result = "";
-  switch (calculationOperator) {
-    case "+":
-      result = parseFloat(prevNumber) + parseFloat(currentNumber);
-      break;
-    case "-":
-      result = parseFloat(prevNumber) - parseFloat(currentNumber);
-      break;
-    case "*":
-      result = parseFloat(prevNumber) * parseFloat(currentNumber);
-      break;
-    case "/":
-      result = parseFloat(prevNumber) / parseFloat(currentNumber);
-      break;
-    default:
-      break;
+
+  if (currentNumber != "" && prevNumber != "") {
+    switch (calculationOperator) {
+      case "+":
+        result = parseFloat(prevNumber) + parseFloat(currentNumber);
+        break;
+      case "-":
+        result = parseFloat(prevNumber) - parseFloat(currentNumber);
+        break;
+      case "*":
+        result = parseFloat(prevNumber) * parseFloat(currentNumber);
+        break;
+      case "/":
+        result = parseFloat(prevNumber) / parseFloat(currentNumber);
+        break;
+      case "%":
+        result = (parseFloat(prevNumber) / 100) * parseFloat(currentNumber);
+      default:
+        break;
+    }
+  } else if (calculationOperator == "%" && (currentNumber == "" || prevNumber == "")) {
+    result = parseFloat(prevNumber / 100);
+  } else if (currentNumber == "" || prevNumber == "") {
+    result = prevNumber;
   }
+
   currentNumber = result;
   calculationOperator = "";
 };
